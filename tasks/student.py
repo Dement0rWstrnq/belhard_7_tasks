@@ -19,3 +19,52 @@
 
 Вывести студентов, у которых средний балл больше 5
 """
+
+
+class Student:
+    surname: str
+    name: str
+    group: int
+    average_score: float
+
+    def __init__(self, surname, name, group, average_score):
+        self.surname = surname
+        self.name = name
+        self.group = group
+        self.average_score = average_score
+
+    def __eq__(self, other):
+        return self.average_score == other.average_score
+
+    def __ne__(self, other):
+        return self.average_score != other.average_score
+
+    def __lt__(self, other):
+        return self.average_score < other.average_score
+
+    def __gt__(self, other):
+        return self.average_score > other.average_score
+
+    def __le__(self, other):
+        return self.average_score <= other.average_score
+
+    def __ge__(self, other):
+        return self.average_score >= other.average_score
+
+    def __repr__(self):
+        return f"Имя студента: {self.name}, Фамилия студента: {self.surname}, Группа студента: {self.group}," \
+               f" Средний балл студента: {self.average_score}."
+
+
+some_list = [
+    Student("Kill", "Real", "8A", 9.03),
+    Student("Вячеслав", "Риня", "5Б", 7.77),
+    Student("Егорка", "Крид", "блэкстар", 2.28),
+    Student("Виталий", "ПапичЦаль", "8Г", 3.43),
+    Student("Ланочка", "ДелReal", "11Б", 8.77)
+]
+
+print(sorted(some_list))
+print(sorted(some_list, reverse=True))
+new_list = [student for student in some_list if student.average_score > 5]
+print(new_list)
