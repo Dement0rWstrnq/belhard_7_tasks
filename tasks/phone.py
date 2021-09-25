@@ -17,3 +17,30 @@
 Модель: {}
 Год выпуска: {}
 """
+
+
+class Phone:
+    brand: str
+    model: str
+    issue_year: int
+
+    def __init__(self, brand, model, issue_year):
+        self.brand = brand
+        self.model = model
+        self.issue_year = issue_year
+
+    @staticmethod
+    def receive_call(name):
+        print(f"Звонит: {name}")
+
+    def get_info(self):
+        tuple_info = (self.brand, self.model, self.issue_year)
+        return tuple_info
+
+    def __str__(self):
+        return f"Бренд: {self.brand}\nМодель: {self.model}\nГод выпуска: {self.issue_year}\n"
+
+
+iphone = Phone("IPhone", "5S", "2013")
+print(str(iphone))
+iphone.receive_call("KillReal")
